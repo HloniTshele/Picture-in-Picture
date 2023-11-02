@@ -18,12 +18,20 @@ async function selectMediaStream(){
 }
 
 picturebtn.addEventListener('click', async ()=>{
+
+    try{
     // Disable button 
-    picturebtn.disabled = true;
+        picturebtn.disabled = true;
     // Start Picture in Picture
-    await videoElement.requestPictureInPicture();
+        await videoElement.requestPictureInPicture();
     // Reset the button
-    picturebtn.disabled = false;
+        picturebtn.disabled = false;
+
+    }catch(err){
+        window.alert("Please select the screen first");
+        window.location.reload();
+    }
+  
 });
 
 // onload  
